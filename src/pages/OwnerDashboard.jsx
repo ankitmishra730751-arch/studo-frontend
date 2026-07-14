@@ -8,15 +8,18 @@ function OwnerDashboard() {
   navigate("/owner-login");
 };
   return (
-    <div className="dashboard">
+     <div className="dashboard-header">
+  <div>
+    <h1>🏢 Owner Dashboard</h1>
+    <p>Manage your hostels easily.</p>
+  </div>
 
-      <h1>🏢 Owner Dashboard</h1>
-      <p>Manage your hostels easily.</p>
-      <button
-       className="logout-btn"
-       onClick={handleLogout}>
-       Logout
-      </button>
+  <button
+    className="logout-btn"
+    onClick={handleLogout}
+  >
+    Logout
+  </button>
        <div className="stats">
 
       <div className="stat-card">

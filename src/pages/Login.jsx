@@ -4,8 +4,14 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-   const handleLogin = () => {
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+    if (email === "ankit@gmail.com" && password === "123456") {
     navigate("/student-dashboard");
+  } else {
+    alert("Use Demo Credentials\nEmail: ankit@gmail.com\nPassword: 123456");
+  }
 };
     return (
   <div className="login-container">
@@ -34,6 +40,11 @@ function Login() {
           Register
         </span>
       </p>
+      <p style={{ marginTop: "10px", color: "#888", fontSize: "14px" }}>
+       Demo Login <br />
+      Email: <b>ankit@gmail.com</b><br />
+      Password: <b>123456</b>
+     </p>
     </div>
   </div>
 );
