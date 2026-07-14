@@ -4,7 +4,6 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const navigate = useNavigate();
 
     const handleLogin = () => {
     if (email === "ankit@gmail.com" && password === "123456") {
