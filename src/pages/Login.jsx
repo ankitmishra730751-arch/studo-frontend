@@ -4,25 +4,8 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const handleLogin = async () => {
-
-  const response = await fetch(
-    `http://localhost:8080/users/login?email=${email}&password=${password}`,
-    {
-      method: "POST",
-    }
-  );
-
-  const token = await response.text();
-
-if (response.ok) {
-    localStorage.setItem("token", token);
-    alert("Login Successful");
-    console.log(token);
+   const handleLogin = () => {
     navigate("/student-dashboard");
-} else {
-    alert("Login Failed");
-  }
 };
     return (
   <div className="login-container">
