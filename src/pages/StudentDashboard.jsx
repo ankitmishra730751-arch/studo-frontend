@@ -1,57 +1,173 @@
 import { Link, useNavigate } from "react-router-dom";
+import "../css/dashboard.css";
 
 function StudentDashboard() {
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  alert("Logged Out Successfully!");
-  navigate("/login");
-};
+
+    localStorage.removeItem("token");
+
+    navigate("/login");
+
+  };
 
   return (
-    <div className="dashboard">
 
-      <h1>🎓 Student Dashboard</h1>
-      <p>Manage your bookings easily.</p>
+    <section className="student-dashboard">
 
-      <button className="logout-btn" onClick={handleLogout}>
-        Logout
-      </button>
+      {/* Hero Section */}
 
-      <div className="dashboard-cards">
+      <div className="dashboard-hero">
 
-        <div className="dashboard-card">
-          <h2>👤 Profile</h2>
-          <p>View your profile.</p>
+        <h1>
+          👋 Welcome Back to <span>STUBO</span>
+        </h1>
 
-          <Link to="/student-profile">
-            <button>Open</button>
-          </Link>
-        </div>
+        <h2>
+          Find Your Perfect Hostel
+        </h2>
 
-        <div className="dashboard-card">
-          <h2>📖 My Bookings</h2>
-          <p>View your hostel bookings.</p>
+        <p>
+          Browse verified hostels near your college,
+          compare facilities and connect directly with
+          trusted hostel owners.
+        </p>
 
-          <Link to="/my-bookings">
-            <button>View</button>
-          </Link>
-        </div>
+        <Link to="/all-hostels">
 
-        <div className="dashboard-card">
-          <h2>❤️ Wishlist</h2>
-          <p>Saved hostels.</p>
+          <button className="explore-btn">
 
-          <Link to="/wishlist">
-            <button>Open</button>
-          </Link>
-        </div>
+            🏠 Explore All Hostels
+
+          </button>
+
+        </Link>
 
       </div>
 
-    </div>
+      {/* Dashboard Cards */}
+
+      <div className="dashboard-grid">
+      <div className="dashboard-card">
+
+          <h2>❤️ Wishlist</h2>
+
+          <p>
+            View all your saved favourite hostels.
+          </p>
+
+          <Link to="/wishlist">
+
+            <button>
+              Open
+            </button>
+
+          </Link>
+
+        </div>
+
+        <div className="dashboard-card">
+
+          <h2>📖 My Bookings</h2>
+
+          <p>
+            Check your hostel booking status.
+          </p>
+
+          <Link to="/my-bookings">
+
+            <button>
+              Open
+            </button>
+
+          </Link>
+
+        </div>
+
+        <div className="dashboard-card">
+
+          <h2>👤 My Profile</h2>
+
+          <p>
+            Update your personal information.
+          </p>
+
+          <Link to="/student-profile">
+
+            <button>
+              View
+            </button>
+
+          </Link>
+
+        </div>
+
+        <div className="dashboard-card">
+
+          <h2>📞 Contact Support</h2>
+
+          <p>
+            Need help? Contact the STUBO support team.
+          </p>
+
+          <Link to="/contact">
+
+            <button>
+              Contact
+            </button>
+
+          </Link>
+
+        </div>
+
+        <div className="dashboard-card">
+
+          <h2>⚙️ Settings</h2>
+
+          <p>
+            Manage your account settings.
+          </p>
+
+          <Link to="/settings">
+
+            <button>
+              Open
+            </button>
+
+          </Link>
+
+        </div>
+
+      </div>
+      {/* Footer */}
+
+      <div className="dashboard-footer">
+
+        <p>
+          🏠 Verified Hostels • 🔒 Secure Booking • ⭐ Trusted by Students
+        </p>
+
+      </div>
+
+      {/* Logout */}
+
+      <div className="logout-section">
+
+        <button
+          className="logout-btn"
+          onClick={handleLogout}
+        >
+          🚪 Logout
+        </button>
+
+      </div>
+
+    </section>
+
   );
+
 }
 
 export default StudentDashboard;

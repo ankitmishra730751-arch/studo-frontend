@@ -1,128 +1,361 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import royal from "../assets/royal.jpg";
-import krishna from "../assets/krishna.jpg";
-import gla from "../assets/gla.jpg";
+
+import "../css/home.css";
+
 function Home() {
+
   const [search, setSearch] = useState("");
+
   const navigate = useNavigate();
 
+  const featuredHostels = [
+
+    {
+      id: 1,
+      name: "Neha Flat",
+      image:
+        "https://res.cloudinary.com/ktatmqjd/image/upload/v1784145180/neha-flats-2.jpg_ysu3jo.jpg",
+      location: "Near GLA University, Mathura",
+      distance: "5 min away",
+      rent: "₹12,000 / Month",
+      extra: "❄ AC Rooms"
+    },
+
+    {
+      id: 2,
+      name: "Cozy Girls Hostel",
+      image:
+        "https://res.cloudinary.com/ktatmqjd/image/upload/v1784145623/Cozy-girls-hostels-1.jpg_z7tg5s.jpg",
+      location: "Near GLA University, Mathura",
+      distance: "2 min away",
+      rent: "₹10,000 / Month",
+      extra: "👧 Premium Girls Hostel"
+    },
+
+    {
+      id: 3,
+      name: "Rana Boys Hostel",
+      image:
+        "https://res.cloudinary.com/ktatmqjd/image/upload/v1784146187/rana-boys-hostels-1.jpg_obatjc.jpg",
+      location: "Near GLA University, Mathura",
+      distance: "2 min away",
+      rent: "₹8,500 / Month",
+      extra: "👦 Boys Hostel"
+    }
+
+  ];
+
   const handleSearch = () => {
-  const price = document.getElementById("price").value;
-  navigate(`/hostels?city=${search}&price=${price}`);
+
+    navigate(`/hostels?city=${search}`);
+
   };
+
   return (
-    <div>
-      <div className="hero">
-    <h1>🏠 Find Your Perfect Hostel</h1>
 
-    <p>
-    Discover verified hostels near your college with affordable prices,
-    modern facilities and secure booking.
-    </p>
+    <>
 
-    <div className="search-box">
-    <input
-    type="text"
-    placeholder="Search by city or hostel..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-    />
-    <select id="price">
-    <option value="">All Prices</option>
-    <option value="5000">Below ₹5000</option>
-    <option value="6000">Below ₹6000</option>
-    </select>
-    <button onClick={handleSearch}>
-    🔍 Search
-    </button>
-     </div>
-    </div>
-    <div className="features">
+      <section className="hero">
 
-  <div className="feature-card">
-    <h3>🏠 Verified Hostels</h3>
-    <p>Only trusted and verified hostel owners.</p>
-  </div>
+        <div className="hero-overlay"></div>
 
-  <div className="feature-card">
-    <h3>💰 Affordable Prices</h3>
-    <p>Find hostels that fit your budget.</p>
-  </div>
+        <div className="hero-content">
 
-  <div className="feature-card">
-    <h3>📞 Direct Contact</h3>
-    <p>Connect directly with hostel owners.</p>
-  </div>
+          <span className="hero-badge">
+            🎓 Made for Students
+          </span>
 
-   </div>
+          <h1>
 
-      <h2 className="section-title">Featured Hostels</h2>
-      <div className="hostel-cards">
+            Find your
+            <span> perfect hostel</span>
 
-  <div className="card">
-    <img src={royal} alt="Royal Boys Hostel" className="hostel-image" />
-    <h3>🏠 Royal Boys Hostel</h3>
-    <p>📍 Mathura</p>
-    <p>⭐ 4.8 Rating</p>
-    <p>₹5000 / Month</p>
-    <Link to="/hostel-details">
-  <button>View Details</button>
-</Link>
-  </div>
+          </h1>
 
-  <div className="card">
-    <img src={krishna} alt="Krishna PG" className="hostel-image" />
-    <h3>🏠 Krishna PG</h3>
-    <p>📍 Vrindavan</p>
-    <p>⭐ 4.8 Rating</p>
-    <p>₹4500 / Month</p>
-    <button>View Details</button>
-  </div>
+          <p>
 
-  <div className="card">
-    <img src={gla} alt="GLA Boys Hostel" className="hostel-image" />
-    <h3>🏠 GLA Boys Hostel</h3>
-    <p>📍 Mathura</p>
-    <p>⭐ 4.8 Rating</p>
-    <p>₹6000 / Month</p>
-    <button>View Details</button>
-  </div>
-   <footer className="footer">
-  <div className="footer-content">
+            Discover verified hostels near your college with affordable
+            prices, secure booking and trusted owners.
 
-    <div>
-      <h3>🏠 Hostel Booking</h3>
-      <p>Find verified hostels near your college.</p>
-    </div>
+          </p>
 
-    <div>
-      <h3>Quick Links</h3>
-      <p>Home</p>
-      <p>Hostels</p>
-      <p>Login</p>
-      <p>Register</p>
-    </div>
+          <div className="search-box">
 
-    <div>
-      <h3>Contact</h3>
-      <p>📍 Mathura</p>
-      <p>📧 support@hostelbooking.com</p>
-      <p>📞 +91 9876543210</p>
-    </div>
+            <input
+              type="text"
+              placeholder="Search hostel or city..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
 
-  </div>
+            <button onClick={handleSearch}>
+              Search
+            </button>
 
-  <hr />
+          </div>
 
-  <p className="copyright">
-    © 2026 Hostel Booking. All Rights Reserved.
-  </p>
-</footer>
+        </div>
 
-   </div>
-    </div>
+      </section>
+
+      <section className="features">
+
+        <div className="feature-card">
+
+          <div className="feature-icon">🛡️</div>
+
+          <h3>Verified Hostels</h3>
+
+          <p>
+            Only trusted and verified hostel owners.
+          </p>
+
+        </div>
+
+        <div className="feature-card">
+
+          <div className="feature-icon">💰</div>
+
+          <h3>Affordable Prices</h3>
+
+          <p>
+            Find hostels that fit your budget.
+          </p>
+
+        </div>
+
+        <div className="feature-card">
+
+          <div className="feature-icon">📞</div>
+
+          <h3>Direct Contact</h3>
+
+          <p>
+            Connect directly with hostel owners.
+          </p>
+
+        </div>
+
+      </section>
+      <section className="hostel-section">
+
+        <h2>Featured Hostels</h2>
+
+        <div className="hostel-grid">
+
+          {featuredHostels.map((hostel) => (
+
+            <div
+              className="hostel-card"
+              key={hostel.id}
+            >
+
+              <img
+                src={hostel.image}
+                alt={hostel.name}
+              />
+
+              <div className="hostel-info">
+
+                <h3>{hostel.name}</h3>
+
+                <p>📍 {hostel.location}</p>
+
+                <p>🚶 {hostel.distance}</p>
+
+                <p className="price">
+                  {hostel.rent}
+                </p>
+
+                <p className="facility-text">
+                  {hostel.extra}
+                </p>
+
+                <Link to="/login">
+
+                  <button>
+                    View Details
+                  </button>
+
+                </Link>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      <section className="why-stubo">
+
+        <h2>
+          Why Choose STUBO?
+        </h2>
+
+        <div className="why-grid">
+
+          <div className="why-card">
+
+            <h3>100% Verified</h3>
+
+            <p>
+              No fake listings.
+            </p>
+
+          </div>
+
+          <div className="why-card">
+
+            <h3>Easy Booking</h3>
+
+            <p>
+              Book hostel in minutes.
+            </p>
+
+          </div>
+
+          <div className="why-card">
+
+            <h3>Trusted Owners</h3>
+           <p>Contact verified hostel owners directly.</p>
+
+          </div>
+
+        </div>
+
+      </section>
+      <section className="stats-section">
+
+        <div className="stat-box">
+
+          <h2>50+</h2>
+
+          <p>Verified Hostels</p>
+
+        </div>
+
+        <div className="stat-box">
+
+          <h2>📍</h2>
+
+          <p>Near GLA University, Mathura</p>
+
+        </div>
+
+        <div className="stat-box">
+
+          <h2>24/7</h2>
+
+          <p>Support</p>
+
+        </div>
+
+        <div className="stat-box">
+
+          <h2>100%</h2>
+
+          <p>Verified Owners</p>
+
+        </div>
+
+      </section>
+
+      <section className="cta-section">
+
+        <div className="cta-card">
+
+          <h2>
+            Ready to Find Your Hostel?
+          </h2>
+
+          <p>
+            Join STUBO today and discover verified hostels
+            near your college.
+          </p>
+
+          <div className="cta-buttons">
+
+            <Link to="/login">
+
+              <button className="student-btn">
+                Student Login
+              </button>
+
+            </Link>
+
+            <Link to="/owner-login">
+
+              <button className="owner-btn">
+                Owner Login
+              </button>
+
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <footer className="footer">
+
+        <div className="footer-content">
+
+          <div>
+
+            <h3>STUBO</h3>
+
+            <p>
+              India's Smart Hostel Booking Platform.
+            </p>
+
+          </div>
+
+          <div>
+
+            <h3>Quick Links</h3>
+
+            <Link to="/">Home</Link><br />
+
+            <Link to="/hostels">Hostels</Link><br />
+
+            <Link to="/login">Student Login</Link><br />
+
+            <Link to="/owner-login">Owner Login</Link>
+
+          </div>
+
+          <div>
+
+            <h3>Contact</h3>
+
+            <p>📍 Mathura, Uttar Pradesh</p>
+
+            <p>📧 support@stubo.in</p>
+
+            <p>📞 +91 XXXXXXXXXX</p>
+
+          </div>
+
+        </div>
+
+        <hr />
+        <p className="copyright">
+
+          © 2026 STUBO. All Rights Reserved.
+
+        </p>
+
+      </footer>
+
+    </>
+
   );
+
 }
 
 export default Home;
