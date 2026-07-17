@@ -299,7 +299,7 @@ const [selectedImage, setSelectedImage] = useState(null);
   <span>🛏 Single Sharing</span>
   <span>🛏 Double Sharing</span>
 </>
-):
+): (
 
 <>
 
