@@ -12,9 +12,9 @@ function AllHostels() {
       rating: "⭐ 4.8 (120 Reviews)",
       distance: "📍 5 Min Away from GLA University",
       rent: "₹12,000 / Month",
-      type: "🏠 Boys & Girls Hostel",
-      sharing: "🛏 2 Sharing",
-      mess: "🍽 Mess Included"
+      type: "🏠 Boys & Girls & Family Flat",
+      sharing: "🛏 1,2,3 Sharing",
+      mess: "❌ Mess Not Included"
     },
 
     {
@@ -37,9 +37,42 @@ function AllHostels() {
       distance: "📍 2 Min Away from GLA University",
       rent: "₹8,500 / Month",
       type: "🏠 Boys Hostel",
-      sharing: "🛏 3 Sharing",
+      sharing: "🛏 2,3 Sharing",
       mess: "🍽 Mess Included"
-    }
+    },
+{
+  id: 4,
+  name: "Vaishnavi Boys Hostel",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784262084/Vaishnavi-Boys-Hostel-1.jpg_cn0fsb.jpg",
+  rating: "⭐ 4.7 (102 Reviews)",
+  distance: "📍 2 Min Away from GLA University",
+  rent: "₹5,000 / Month",
+  type: "🏠 Boys Hostel",
+  sharing: "🛏 2 Sharing",
+  mess: "❌ Mess Not Included"
+},
+{
+  id: 5,
+  name: "Neha Girls Hostel",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784264070/Neha-Girls-Hostel-1.jpg_qm1q4l.jpg",
+  rating: "⭐ 4.7 (89 Reviews)",
+  distance: "📍 5 Min Away from GLA University",
+  rent: "₹3,500 / Month",
+  type: "🏠 Girls Hostel",
+  sharing: "🛏 1 / 2 / 3 Sharing",
+  mess: "🍽 Mess Available"
+},
+{
+  id: 6,
+  name: "Shree Govindam Chhatrawas Nivas",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784266749/Shree-Govindam-Chhatrawas-Nivas-1.jpg_a7cos8.jpg",
+  rating: "⭐ 4.7 (102 Reviews)",
+  distance: "📍 4 Min Away from GLA University",
+  rent: "₹9,000 / Month",
+  type: "🏠 Boys Hostel",
+  sharing: "🛏 1 / 2 Sharing",
+  mess: "🍽 Mess Included"
+},
 
   ];
 
