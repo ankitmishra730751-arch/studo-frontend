@@ -196,6 +196,132 @@ images:[
   ]
 
 },
+7: {
+
+  name: "LA LA LAND",
+
+  rating: "4.8",
+
+  reviews: "104 Reviews",
+
+  location: "Near GLA University, Mathura",
+
+  distance: "2 Min Away from GLA University",
+
+  rent: "₹5,000 / Month",
+
+  owner: "9501906552",
+
+  images: [
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354962/La-La-Land-Boys-hostel-2.jpg_mxjs5a.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354963/La-La-Land-Boys-hostel-1.jpg_dn5uww.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354963/La-La-Land-Boys-hostel-3.jpg_s39i5r.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354963/La-La-Land-Boys-hostel-4.jpg_dc9vxn.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354963/La-La-Land-Boys-hostel-5.jpg_tvawnf.jpg"
+
+  ]
+
+},
+8: {
+
+  name: "AV Boys Hostel",
+
+  rating: "4.8",
+
+  reviews: "99 Reviews",
+
+  location: "Front of GLA University, Mathura",
+
+  distance: "Front of GLA University",
+
+  rent: "₹80,000 / Year (Non AC) | ₹1,20,000 / Year (AC)",
+
+  owner: "8755774015",
+
+  images: [
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357002/Av-Boys-Hostel-1.jpg_ifzu05.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357001/Av-Boys-Hostel-2.jpg_kvntbe.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357001/Av-Boys-Hostel-3.jpg_dzjxkr.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357000/Av-Boys-Hostel-4.jpg_tcivjr.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357000/Av-Boys-Hostel-5.jpg_hycyxh.jpg"
+
+  ]
+
+},
+9: {
+
+  name: "Ladli Ji Girls Hostel",
+
+  rating: "4.7",
+
+  reviews: "96 Reviews",
+
+  location: "Near GLA University, Mathura",
+
+  distance: "2 Min Away from GLA University",
+
+  rent: "₹7,500 / Month",
+
+  owner: "9634246561",
+
+  images: [
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358779/Ladli-Ji-Girls-Hostel-1.jpg_nnshff.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358777/Ladli-Ji-Girls-Hostel-2.jpg_qz93ig.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358776/Ladli-Ji-Girls-Hostel-3.jpg_qwkx9v.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358775/Ladli-Ji-Girls-Hostel-4.jpg_tzg6kz.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358775/Ladli-Ji-Girls-Hostel-5.jpg_huv5zs.jpg"
+
+  ]
+
+},
+10: {
+
+  name: "Abhinandan Boys and Girls Hostel",
+
+  rating: "4.8",
+
+  reviews: "97 Reviews",
+
+  location: "Near GLA University, Mathura",
+
+  distance: "5 Min Away from GLA University",
+
+  rent: "₹90,000 / Year (Non AC) | AC ₹90,000 + Electricity Bill",
+
+  owner: "8679251595",
+
+  images: [
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361917/Abhinandan_Hostel-1.jpg_m4qads.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361915/Abhinandan_Hostel-2.jpg_r9v0dx.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361913/Abhinandan_Hostel-3.jpg_hhqnu9.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361911/Abhinandan_Hostel-4.jpg_vho8rf.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361910/Abhinandan_Hostel-5.jpg_pnpynk.jpg",
+
+    "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361909/Abhinandan_Hostel-6.jpg_do3b3n.jpg"
+
+  ]
+
+},
 
 };
 const hostel = hostelData[id];
@@ -241,15 +367,20 @@ const [selectedImage, setSelectedImage] = useState(null);
 
         <div className="type-box">
   {hostel.name==="Cozy Girls Hostel" ||
-   hostel.name === "Neha Girls Hostel" ? (
+   hostel.name === "Neha Girls Hostel" || hostel.name==="Ladli Ji Girls Hostel" ? (
 
 <span>👧 Girls</span>
 
-) : hostel.name==="Rana Boys Hostel" || hostel.name==="Vaishnavi Boys Hostel" || hostel.name==="Shree Govindam Chhatrawas Nivas" ? (
+) : hostel.name==="Rana Boys Hostel" || hostel.name==="Vaishnavi Boys Hostel" || hostel.name==="Shree Govindam Chhatrawas Nivas" || hostel.name==="LA LA LAND" || hostel.name==="AV Boys Hostel"? (
 
 <span>👦 Boys</span>
 
-) : (
+) : hostel.name === "Abhinandan Boys and Girls Hostel" ? (
+<>
+  <span>👦 Boys</span>
+  <span>👧 Girls</span>
+</>
+  ) : (
 
 <>
 
@@ -299,7 +430,25 @@ const [selectedImage, setSelectedImage] = useState(null);
   <span>🛏 Single Sharing</span>
   <span>🛏 Double Sharing</span>
 </>
-): (
+): hostel.name === "LA LA LAND" ? (
+<>
+  <span>🛏 Double Sharing</span>
+  <span>🛏 Triple Sharing</span>
+</>
+) : hostel.name === "AV Boys Hostel" ? (
+<>
+  <span>🛏 Double Sharing</span>
+</>
+) : hostel.name === "Ladli Ji Girls Hostel" ? (
+<>
+  <span>🛏 Double Sharing</span>
+  <span>🛏 Triple Sharing</span>
+</>
+) : hostel.name === "Abhinandan Boys and Girls Hostel" ? (
+<>
+  <span>🛏 Double Sharing</span>
+</>
+) : (
 
 <>
 
@@ -374,6 +523,22 @@ const [selectedImage, setSelectedImage] = useState(null);
 
         <p>
 {
+  hostel.name === "Abhinandan Boys and Girls Hostel"
+?
+"Abhinandan Boys and Girls Hostel is a modern hostel located just 5 minutes from GLA University, Mathura. The hostel provides separate accommodation for both boys and girls in a safe and student-friendly environment. It offers Double Sharing rooms with WiFi, RO drinking water, CCTV surveillance, power backup, parking, laundry facilities, hygienic mess services, and attached bathrooms. A unique feature of this hostel is its swimming pool and well-maintained garden, providing students with opportunities for relaxation and recreation. The hostel also offers 24×7 emergency medical assistance, ensuring students receive immediate support whenever required. With quality facilities, security, and a peaceful atmosphere, Abhinandan Boys and Girls Hostel is an excellent choice for students near GLA University."
+:
+  hostel.name === "Ladli Ji Girls Hostel"
+?
+"Ladli Ji Girls Hostel is a secure and comfortable accommodation located just 2 minutes from GLA University, Mathura. The hostel is specially designed for girls and provides a safe, family-oriented environment where the owner's family lives on the premises, ensuring continuous care and supervision. Students benefit from 24×7 CCTV surveillance, WiFi, RO drinking water, power backup, parking, laundry facilities, hygienic mess services, and attached bathrooms. Double and Triple Sharing rooms are clean, spacious, and well-maintained. With its focus on safety, comfort, and a peaceful atmosphere, Ladli Ji Girls Hostel is an excellent choice for girls studying at GLA University."
+:
+  hostel.name === "AV Boys Hostel"
+?
+"AV Boys Hostel is located directly in front of GLA University, making it one of the most convenient accommodation options for students. The hostel offers Double Sharing rooms with both AC and Non-AC options. Students are provided with high-speed WiFi, RO drinking water, CCTV security, power backup, parking, laundry facilities, and hygienic mess services. The hostel has clean and well-maintained common bathrooms and toilets that are regularly cleaned for students' comfort. Its excellent location allows students to reach the university within a few minutes on foot, making it an ideal choice for those who prefer to stay very close to the campus."
+:
+  hostel.name === "LA LA LAND"
+?
+"LA LA LAND is a newly constructed boys hostel located just 2 minutes from GLA University, Mathura. Designed with modern facilities and student comfort in mind, the hostel offers clean and spacious Double and Triple Sharing rooms with attached bathrooms. Students enjoy high-speed WiFi, RO drinking water, CCTV security, power backup, parking, and laundry facilities, including washing machines for daily convenience. Popular restaurants and cafés are located nearby, making it easy for students to access food and hangout spots. With its fresh infrastructure, safe environment, and excellent location, LA LA LAND is a great choice for students looking for comfortable and affordable accommodation near GLA University."
+:
   hostel.name === "Shree Govindam Chhatrawas Nivas"
 ?
 "Shree Govindam Chhatrawas Nivas is a well-maintained boys hostel located just 4 minutes from GLA University, Mathura. The hostel offers a peaceful, safe, and student-friendly environment with 24×7 CCTV surveillance and warden support. It provides high-speed WiFi, RO drinking water, power backup, parking, attached bathrooms, and hygienic mess facilities. A special feature of this hostel is the availability of sweet water for bathing, making daily use more comfortable. Students staying in Non-AC rooms are also provided with coolers during the summer season for added comfort. With Single and Double Sharing options, this hostel is an excellent choice for students looking for quality accommodation near the university."

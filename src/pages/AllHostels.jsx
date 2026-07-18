@@ -73,6 +73,50 @@ function AllHostels() {
   sharing: "🛏 1 / 2 Sharing",
   mess: "🍽 Mess Included"
 },
+{
+  id: 7,
+  name: "LA LA LAND",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354962/La-La-Land-Boys-hostel-2.jpg_mxjs5a.jpg",
+  rating: "⭐ 4.8 (104 Reviews)",
+  distance: "📍 2 Min Away from GLA University",
+  rent: "₹5,000 / Month",
+  type: "🏠 Boys Hostel",
+  sharing: "🛏 2 / 3 Sharing",
+  mess: "❌ Mess Not Included"
+},
+{
+  id: 8,
+  name: "AV Boys Hostel",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357002/Av-Boys-Hostel-1.jpg_ifzu05.jpg",
+  rating: "⭐ 4.8 (99 Reviews)",
+  distance: "📍 Front of GLA University",
+  rent: "₹80,000 / Year",
+  type: "🏠 Boys Hostel",
+  sharing: "🛏 Double Sharing",
+  mess: "🍽 Mess Included"
+},
+{
+  id: 9,
+  name: "Ladli Ji Girls Hostel",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358779/Ladli-Ji-Girls-Hostel-1.jpg_nnshff.jpg",
+  rating: "⭐ 4.7 (96 Reviews)",
+  distance: "📍 2 Min Away from GLA University",
+  rent: "₹7,500 / Month",
+  type: "🏠 Girls Hostel",
+  sharing: "🛏 2 / 3 Sharing",
+  mess: "🍽 Mess Included"
+},
+{
+  id: 10,
+  name: "Abhinandan Boys and Girls Hostel",
+  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361917/Abhinandan_Hostel-1.jpg_m4qads.jpg",
+  rating: "⭐ 4.8 (97 Reviews)",
+  distance: "📍 5 Min Away from GLA University",
+  rent: "₹90,000 / Year",
+  type: "🏠 Boys & Girls Hostel",
+  sharing: "🛏 Double Sharing",
+  mess: "🍽 Mess Included"
+}
 
   ];
 
