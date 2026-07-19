@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stubo.in/sitemap.xml
