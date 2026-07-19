@@ -26,12 +26,12 @@ function Login() {
 
   try {
 
-    const response = await fetch(
-      `https://studo-backend-q8aw.onrender.com/users/login?email=${email}&password=${password}&role=${role.toUpperCase()}`,
-      {
-        method: "POST",
-      }
-    );
+    const response = await 
+    fetch(`https://studo-backend-q8aw.onrender.com/users/login?email=${email}&password=${password}&role=${role.toUpperCase()}`,
+  {
+    method: "POST",
+  }
+);
 
     const token = await response.text();
 
