@@ -13,50 +13,50 @@ function Login() {
     ? "owner"
     : "student";
 
-  const [role, setRole] = useState("Student");
+  const [role, setRole] = useState(defaultRole);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+    const handleLogin = async () => {
 
-    if (email.trim() === "" || password.trim() === "") {
-      alert("Please enter your email and password.");
+  if (!email || !password) {
+    alert("Please enter your email and password.");
+    return;
+  }
+
+  try {
+
+    const response = await fetch(
+      `https://studo-backend-q8aw.onrender.com/users/login?email=${email}&password=${password}&role=${role.toUpperCase()}`,
+      {
+        method: "POST",
+      }
+    );
+
+    const token = await response.text();
+
+    if (token === "Login Failed") {
+      alert("Invalid Email, Password or Role");
       return;
     }
 
+    localStorage.setItem("token", token);
+    localStorage.setItem("email", email);
+    localStorage.setItem("role", role.toUpperCase());
+
+    alert("Login Successful");
+
     if (role === "student") {
-
-      if (
-        email === "ankit@gmail.com" &&
-        password === "123456"
-      ) {
-
-        navigate("/student-dashboard");
-
-      } else {
-
-        alert("Invalid Student Email or Password.");
-
-      }
-
+      navigate("/student-dashboard");
     } else {
-
-      if (
-        email === "owner@gmail.com" &&
-        password === "123456"
-      ) {
-
-        navigate("/owner-dashboard");
-
-      } else {
-
-        alert("Invalid Owner Email or Password.");
-
-      }
-
+      navigate("/owner-dashboard");
     }
 
-  };
+  } catch (error) {
+    alert("Server Error");
+  }
+
+};
 
   return (
 

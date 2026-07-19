@@ -1,35 +1,60 @@
 import { Link } from "react-router-dom";
+import "../css/dashboard.css";
 
 function Wishlist() {
+
   return (
+
     <div className="dashboard">
-      <h1>❤️ Wishlist</h1>
 
-      <div className="dashboard-cards">
+      <h1>❤️ My Wishlist</h1>
 
-        <div className="dashboard-card">
-          <h2>🏠 Royal Boys Hostel</h2>
-          <p>📍 Mathura</p>
-          <p>💰 ₹5000 / Month</p>
+      <p
+        style={{
+          textAlign: "center",
+          color: "#666",
+          marginBottom: "30px",
+          fontSize: "17px"
+        }}
+      >
+        Save your favourite hostels and access them anytime.
+      </p>
 
-          <Link to="/hostel-details">
-            <button>View Details</button>
-          </Link>
-        </div>
+      <div
+        className="dashboard-card"
+        style={{
+          maxWidth: "700px",
+          margin: "0 auto",
+          textAlign: "center"
+        }}
+      >
 
-        <div className="dashboard-card">
-          <h2>🏠 City Hostel</h2>
-          <p>📍 Agra</p>
-          <p>💰 ₹6500 / Month</p>
+        <h2>💔 No Hostels Added Yet</h2>
 
-          <Link to="/hostel-details">
-            <button>View Details</button>
-          </Link>
-        </div>
+        <p style={{ lineHeight: "1.8" }}>
+          You haven't added any hostels to your wishlist yet.
+          <br />
+          Explore hostels and tap the ❤️ icon to save your favourite hostels.
+        </p>
+
+        <Link to="/all-hostels">
+
+          <button
+            style={{
+              marginTop: "20px"
+            }}
+          >
+            🏠 Explore Hostels
+          </button>
+
+        </Link>
 
       </div>
+
     </div>
+
   );
+
 }
 
 export default Wishlist;

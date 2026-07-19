@@ -1,127 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/hostel.css";
+import "../css/AllHostels.css";
 
 function AllHostels() {
 
-  const hostels = [
+  const [hostels, setHostels] = useState([]);
 
-    {
-      id: 1,
-      name: "Neha Flats",
-      image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784145180/neha-flats-2.jpg_ysu3jo.jpg",
-      rating: "⭐ 4.8 (120 Reviews)",
-      distance: "📍 5 Min Away from GLA University",
-      rent: "₹12,000 / Month",
-      type: "🏠 Boys & Girls & Family Flat",
-      sharing: "🛏 1,2,3 Sharing",
-      mess: "❌ Mess Not Included"
-    },
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("ALL");
+  const [sort, setSort] = useState("");
 
-    {
-      id: 2,
-      name: "Cozy Girls Hostel",
-      image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784145623/Cozy-girls-hostels-1.jpg_z7tg5s.jpg",
-      rating: "⭐ 4.7 (95 Reviews)",
-      distance: "📍 2 Min Away from GLA University",
-      rent: "₹10,000 / Month",
-      type: "🏠 Girls Hostel",
-      sharing: "🛏 2 Sharing",
-      mess: "🍽 Mess Included"
-    },
-
-    {
-      id: 3,
-      name: "Rana Boys Hostel",
-      image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784146187/rana-boys-hostels-1.jpg_obatjc.jpg",
-      rating: "⭐ 4.6 (88 Reviews)",
-      distance: "📍 2 Min Away from GLA University",
-      rent: "₹8,500 / Month",
-      type: "🏠 Boys Hostel",
-      sharing: "🛏 2,3 Sharing",
-      mess: "🍽 Mess Included"
-    },
-{
-  id: 4,
-  name: "Vaishnavi Boys Hostel",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784262084/Vaishnavi-Boys-Hostel-1.jpg_cn0fsb.jpg",
-  rating: "⭐ 4.7 (102 Reviews)",
-  distance: "📍 2 Min Away from GLA University",
-  rent: "₹5,000 / Month",
-  type: "🏠 Boys Hostel",
-  sharing: "🛏 2 Sharing",
-  mess: "❌ Mess Not Included"
-},
-{
-  id: 5,
-  name: "Neha Girls Hostel",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784264070/Neha-Girls-Hostel-1.jpg_qm1q4l.jpg",
-  rating: "⭐ 4.7 (89 Reviews)",
-  distance: "📍 5 Min Away from GLA University",
-  rent: "₹3,500 / Month",
-  type: "🏠 Girls Hostel",
-  sharing: "🛏 1 / 2 / 3 Sharing",
-  mess: "🍽 Mess Available"
-},
-{
-  id: 6,
-  name: "Shree Govindam Chhatrawas Nivas",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784266749/Shree-Govindam-Chhatrawas-Nivas-1.jpg_a7cos8.jpg",
-  rating: "⭐ 4.7 (102 Reviews)",
-  distance: "📍 4 Min Away from GLA University",
-  rent: "₹9,000 / Month",
-  type: "🏠 Boys Hostel",
-  sharing: "🛏 1 / 2 Sharing",
-  mess: "🍽 Mess Included"
-},
-{
-  id: 7,
-  name: "LA LA LAND",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784354962/La-La-Land-Boys-hostel-2.jpg_mxjs5a.jpg",
-  rating: "⭐ 4.8 (104 Reviews)",
-  distance: "📍 2 Min Away from GLA University",
-  rent: "₹5,000 / Month",
-  type: "🏠 Boys Hostel",
-  sharing: "🛏 2 / 3 Sharing",
-  mess: "❌ Mess Not Included"
-},
-{
-  id: 8,
-  name: "AV Boys Hostel",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784357002/Av-Boys-Hostel-1.jpg_ifzu05.jpg",
-  rating: "⭐ 4.8 (99 Reviews)",
-  distance: "📍 Front of GLA University",
-  rent: "₹80,000 / Year",
-  type: "🏠 Boys Hostel",
-  sharing: "🛏 Double Sharing",
-  mess: "🍽 Mess Included"
-},
-{
-  id: 9,
-  name: "Ladli Ji Girls Hostel",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784358779/Ladli-Ji-Girls-Hostel-1.jpg_nnshff.jpg",
-  rating: "⭐ 4.7 (96 Reviews)",
-  distance: "📍 2 Min Away from GLA University",
-  rent: "₹7,500 / Month",
-  type: "🏠 Girls Hostel",
-  sharing: "🛏 2 / 3 Sharing",
-  mess: "🍽 Mess Included"
-},
-{
-  id: 10,
-  name: "Abhinandan Boys and Girls Hostel",
-  image: "https://res.cloudinary.com/ktatmqjd/image/upload/v1784361917/Abhinandan_Hostel-1.jpg_m4qads.jpg",
-  rating: "⭐ 4.8 (97 Reviews)",
-  distance: "📍 5 Min Away from GLA University",
-  rent: "₹90,000 / Year",
-  type: "🏠 Boys & Girls Hostel",
-  sharing: "🛏 Double Sharing",
-  mess: "🍽 Mess Included"
-}
-
-  ];
+  useEffect(() => {
+    fetch("https://studo-backend-q8aw.onrender.com/hostels")
+      .then((response) => response.json())
+      .then((data) => setHostels(data))
+      .catch((error) => console.error("Error:", error));
+  }, []);
 
   return (
-
     <div className="hostels-page">
 
       <h1>🏠 All Hostels</h1>
@@ -130,48 +27,167 @@ function AllHostels() {
         Find your perfect hostel near GLA University.
       </p>
 
+      <div className="search-filter">
+
+        <input
+          type="text"
+          placeholder="🔍 Search Hostel..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-box"
+        />
+
+        <div className="filter-buttons">
+
+          <button onClick={() => setFilter("ALL")}>
+            All
+          </button>
+
+          <button onClick={() => setFilter("BOYS")}>
+            Boys
+          </button>
+
+          <button onClick={() => setFilter("GIRLS")}>
+            Girls
+          </button>
+
+          <button onClick={() => setFilter("FAMILY")}>
+            Family
+          </button>
+
+          <button onClick={() => {
+            setFilter("ALL");
+            setSearch("");
+            setSort("");
+          }}>
+            Reset
+          </button>
+
+        </div>
+
+        <select
+          className="sort-box"
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+        >
+          <option value="">Sort By</option>
+          <option value="LOW">💰 Price Low → High</option>
+          <option value="HIGH">💰 Price High → Low</option>
+          <option value="RATING">⭐ Rating High → Low</option>
+        </select>
+
+      </div>
       <div className="hostel-grid">
 
-        {hostels.map((hostel) => (
+        {hostels
+          .filter((hostel) => {
 
-          <div className="card" key={hostel.id}>
+            const matchSearch = hostel.name
+              .toLowerCase()
+              .includes(search.toLowerCase());
 
-            <img
-              src={hostel.image}
-              alt={hostel.name}
-              className="hostel-img"
-            />
+            const matchFilter =
+              filter === "ALL" ||
+              hostel.hostelType.toUpperCase().includes(filter);
 
-            <h2>{hostel.name}</h2>
+            return matchSearch && matchFilter;
 
-            <p>{hostel.rating}</p>
+          })
 
-            <p>{hostel.distance}</p>
+          .sort((a, b) => {
 
-            <p className="rent">{hostel.rent}</p>
+            if (sort === "LOW") {
+              return (
+                parseInt(a.rent.replace(/\D/g, "")) -
+                parseInt(b.rent.replace(/\D/g, ""))
+              );
+            }
 
-            <p>{hostel.type}</p>
+            if (sort === "HIGH") {
+              return (
+                parseInt(b.rent.replace(/\D/g, "")) -
+                parseInt(a.rent.replace(/\D/g, ""))
+              );
+            }
 
-            <p>{hostel.sharing}</p>
+            if (sort === "RATING") {
+              return b.rating - a.rating;
+            }
 
-            <p>{hostel.mess}</p>
+            return 0;
 
-            <Link to={`/hostel-details/${hostel.id}`}>
-             <button className="view-btn">
-               👁 View Details
-         </button>
-         </Link>
+          })
 
-          </div>
+          .map((hostel) => (
 
-        ))}
+            <div className="card" key={hostel.id}>
+
+              <img
+                src={hostel.imageUrl}
+                alt={hostel.name}
+                className="hostel-img"
+              />
+
+              <h2>{hostel.name}</h2>
+
+              <p>⭐ {hostel.rating} ({hostel.reviews})</p>
+
+              <p>🚶 {hostel.distance}</p>
+
+              <p className="rent">💰 {hostel.rent}</p>
+
+              <p>🏠 {hostel.hostelType.replaceAll(",", " / ")}</p>
+
+              <p>🛏 {hostel.sharingType.replaceAll(",", " / ")}</p>
+
+              <p>
+                {hostel.mess === "Mess Included"
+                  ? "🍽️ Mess Included"
+                  : hostel.mess === "Mess Not Included"
+                  ? "❌ Mess Not Included"
+                  : "🍽️ Mess Available"}
+              </p>
+
+              <Link to={`/hostel-details/${hostel.id}`}>
+                <button className="view-btn">
+                  🔍 View Details
+                </button>
+              </Link>
+
+            </div>
+
+          ))}
 
       </div>
 
+      {hostels.filter((hostel) => {
+
+        const matchSearch = hostel.name
+          .toLowerCase()
+          .includes(search.toLowerCase());
+
+        const matchFilter =
+          filter === "ALL" ||
+          hostel.hostelType.toUpperCase().includes(filter);
+
+        return matchSearch && matchFilter;
+
+      }).length === 0 && (
+
+        <h2
+          style={{
+            color: "white",
+            textAlign: "center",
+            marginTop: "40px"
+          }}
+        >
+          😔 No Hostel Found
+        </h2>
+
+      )}
+
     </div>
-
   );
-
 }
 
 export default AllHostels;

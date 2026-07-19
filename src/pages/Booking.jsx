@@ -23,7 +23,7 @@ function Booking() {
    };
     
    console.log("hostelId =" ,hostelId);
-  const response = await fetch(`http://localhost:8080/bookings/add/${hostelId}`, {
+  const response = await fetch(`https://studo-backend-q8aw.onrender.com/bookings/add/${hostelId}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

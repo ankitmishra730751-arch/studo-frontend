@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 
@@ -13,7 +13,6 @@ import StudentProfile from "./pages/StudentProfile";
 import MyBookings from "./pages/MyBookings";
 import Wishlist from "./pages/Wishlist";
 import AllHostels from "./pages/AllHostels";
-
 
 import OwnerRegister from "./pages/OwnerRegister";
 import OwnerDashboard from "./pages/OwnerDashboard";
@@ -39,17 +38,81 @@ function App() {
         {/* Student */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/student-dashboard" element={<StudentDashboard />} />
-        <Route path="/student-profile" element={<StudentProfile />} />
-        <Route path="/my-bookings" element={<MyBookings />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+
+        <Route
+          path="/student-dashboard"
+          element={
+            <ProtectedRoute>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/student-profile"
+          element={
+            <ProtectedRoute>
+              <StudentProfile />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/my-bookings"
+          element={
+            <ProtectedRoute>
+              <MyBookings />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/wishlist"
+          element={
+            <ProtectedRoute>
+              <Wishlist />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Owner */}
         <Route path="/owner-register" element={<OwnerRegister />} />
-        <Route path="/owner-dashboard" element={<OwnerDashboard />} />
-        <Route path="/my-hostels" element={<MyHostels />} />
-        <Route path="/edit-hostel" element={<EditHostel />} />
-        <Route path="/owner-booking" element={<OwnerBooking />} />
+
+        <Route
+          path="/owner-dashboard"
+          element={
+            <ProtectedRoute>
+              <OwnerDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/my-hostels"
+          element={
+            <ProtectedRoute>
+              <MyHostels />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/edit-hostel"
+          element={
+            <ProtectedRoute>
+              <EditHostel />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/owner-booking"
+          element={
+            <ProtectedRoute>
+              <OwnerBooking />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Hostels */}
         <Route path="/hostels" element={<Hostels />} />

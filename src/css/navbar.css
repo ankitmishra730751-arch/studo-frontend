@@ -248,3 +248,15 @@
     background:#111;
 
 }
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.logout-btn:hover {
+  color: #8cff4f;
+}

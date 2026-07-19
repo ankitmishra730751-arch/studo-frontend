@@ -6,11 +6,11 @@ function StudentDashboard() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("role");
 
     navigate("/login");
-
   };
 
   return (
@@ -30,17 +30,15 @@ function StudentDashboard() {
         </h2>
 
         <p>
-          Browse verified hostels near your college,
-          compare facilities and connect directly with
-          trusted hostel owners.
+          Discover verified hostels near GLA University,
+          compare facilities, check room details and
+          connect directly with trusted hostel owners.
         </p>
 
         <Link to="/all-hostels">
 
           <button className="explore-btn">
-
             🏠 Explore All Hostels
-
           </button>
 
         </Link>
@@ -50,92 +48,154 @@ function StudentDashboard() {
       {/* Dashboard Cards */}
 
       <div className="dashboard-grid">
-      <div className="dashboard-card">
+
+        {/* Wishlist */}
+
+        <div className="dashboard-card">
 
           <h2>❤️ Wishlist</h2>
 
           <p>
-            View all your saved favourite hostels.
+            Save your favourite hostels and access them anytime.
           </p>
 
           <Link to="/wishlist">
-
-            <button>
-              Open
-            </button>
-
+            <button>Open Wishlist</button>
           </Link>
 
         </div>
+
+        {/* My Bookings */}
 
         <div className="dashboard-card">
 
           <h2>📖 My Bookings</h2>
 
           <p>
-            Check your hostel booking status.
+            View your hostel booking history.
+            <br />
+            <strong>(Coming Soon)</strong>
           </p>
 
           <Link to="/my-bookings">
-
-            <button>
-              Open
-            </button>
-
+            <button>Open</button>
           </Link>
 
         </div>
+        {/* My Profile */}
 
         <div className="dashboard-card">
 
           <h2>👤 My Profile</h2>
 
           <p>
-            Update your personal information.
+            View and manage your personal information.
+            <br />
+            <strong>(Profile will be connected soon)</strong>
           </p>
 
           <Link to="/student-profile">
-
-            <button>
-              View
-            </button>
-
+            <button>View Profile</button>
           </Link>
 
         </div>
+
+        {/* Contact Support */}
 
         <div className="dashboard-card">
 
-          <h2>📞 Contact Support</h2>
+          <h2>📞 Contact STUBO Support</h2>
 
           <p>
-            Need help? Contact the STUBO support team.
+            Need help finding a hostel or facing any issue?
           </p>
 
-          <Link to="/contact">
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              justifyContent: "center",
+              marginTop: "15px",
+              flexWrap: "wrap"
+            }}
+          >
 
-            <button>
-              Contact
-            </button>
+            <a
+              href="tel:7307518516"
+              style={{ textDecoration: "none" }}
+            >
+              <button>📞 Call</button>
+            </a>
 
-          </Link>
+            <a
+              href="https://wa.me/917307518516"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <button>💬 WhatsApp</button>
+            </a>
+
+          </div>
 
         </div>
+
+        {/* Add Hostel */}
+
+        <div className="dashboard-card">
+
+          <h2>🏢 Add Your Hostel on STUBO</h2>
+
+          <p>
+            Are you a hostel owner?
+            <br />
+            List your hostel on STUBO and reach thousands of students near GLA University.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              justifyContent: "center",
+              marginTop: "15px",
+              flexWrap: "wrap"
+            }}
+          >
+
+            <a
+              href="tel:7307518516"
+              style={{ textDecoration: "none" }}
+            >
+              <button>📞 Call</button>
+            </a>
+
+            <a
+              href="https://wa.me/917307518516"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <button>💬 WhatsApp</button>
+            </a>
+
+          </div>
+
+        </div>
+
+        {/* Settings */}
 
         <div className="dashboard-card">
 
           <h2>⚙️ Settings</h2>
 
           <p>
-            Manage your account settings.
+            Manage your account preferences.
+            <br />
+            <strong>(Coming Soon)</strong>
           </p>
 
           <Link to="/settings">
-
-            <button>
-              Open
-            </button>
-
+            <button>Open</button>
           </Link>
 
         </div>
@@ -146,7 +206,7 @@ function StudentDashboard() {
       <div className="dashboard-footer">
 
         <p>
-          🏠 Verified Hostels • 🔒 Secure Booking • ⭐ Trusted by Students
+          🏠 Verified Hostels • 📞 Direct Owner Contact • 🔒 Secure Platform • ⭐ Built for Students
         </p>
 
       </div>

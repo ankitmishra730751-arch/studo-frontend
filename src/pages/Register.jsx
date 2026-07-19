@@ -40,13 +40,13 @@ function Register() {
       email,
       phone,
       password,
-      role: "USER",
+      role: "STUDENT",
     };
 
     try {
 
       const response = await fetch(
-        "http://localhost:8080/users/register",
+        "https://studo-backend-q8aw.onrender.com/users/register",
         {
           method: "POST",
           headers: {
