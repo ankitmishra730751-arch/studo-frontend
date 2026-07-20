@@ -88,7 +88,7 @@
 }
 
 .nav-links a,
- logout-btn{
+ .logout-btn{
     display: block;
     color: white;
     text-decoration: none;
@@ -98,7 +98,8 @@
     transition: .3s;
 }
 
-.nav-links a:hover{
+.nav-links a:hover,
+.logout-btn:hover{
     background: #4CAF50;
     color: black;
 }
