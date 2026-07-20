@@ -96,6 +96,16 @@ function Navbar() {
                 📊 Dashboard
               </Link>
             </li>
+            
+             <li>
+          <Link
+            to="/about"
+            onClick={() => setMenuOpen(false)}
+          >
+            ℹ️ About
+          </Link>
+        </li>
+
 
             <li>
               <button
@@ -108,15 +118,7 @@ function Navbar() {
           </>
         )}
 
-        <li>
-          <Link
-            to="/about"
-            onClick={() => setMenuOpen(false)}
-          >
-            ℹ️ About
-          </Link>
-        </li>
-
+       
       </ul>
 
     </nav>
