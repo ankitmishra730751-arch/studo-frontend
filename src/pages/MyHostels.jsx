@@ -1,33 +1,83 @@
-import royal from "../assets/royal.jpg";
-import krishna from "../assets/krishna.jpg";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../css/hostel.css";
+import "../css/AllHostels.css";
 
 function MyHostels() {
+
+  const [hostel, setHostel] = useState(null);
+
+  useEffect(() => {
+
+    const token = localStorage.getItem("token");
+
+    fetch("https://studo-backend-q8aw.onrender.com/owners/my-hostel", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setHostel(data))
+      .catch((error) => console.log(error));
+
+  }, []);
+
   return (
-    <div>
 
-      <h1>🏠 My Hostels</h1>
+    <div className="hostels-page">
 
-      <div className="hostel-cards">
+      <h1>🏠 My Hostel</h1>
 
-        <div className="card">
-          <img src={royal} alt="Royal Hostel" className="hostel-image" />
-          <h3>Royal Boys Hostel</h3>
-          <p>📍 Mathura</p>
-          <p>₹5000 / Month</p>
-          <p>⭐ 4.8</p>
-        </div>
+      {!hostel ? (
 
         <div className="card">
-          <img src={krishna} alt="Krishna PG" className="hostel-image" />
-          <h3>Krishna PG</h3>
-          <p>📍 Vrindavan</p>
-          <p>₹4500 / Month</p>
-          <p>⭐ 4.6</p>
+
+          <h2>No Hostel Linked</h2>
+
+          <p>
+            Your hostel is not linked with your account yet.
+          </p>
+
+          <p>
+            Contact STUBO to verify your hostel.
+          </p>
+
         </div>
 
-      </div>
+      ) : (
+
+        <div className="card">
+
+          <img
+            src={hostel.imageUrl}
+            alt={hostel.name}
+            className="hostel-img"
+          />
+
+          <h2>{hostel.name}</h2>
+
+          <p>⭐ {hostel.rating}</p>
+
+          <p>📍 {hostel.location}</p>
+
+          <p>💰 {hostel.rent}</p>
+
+          <p>🏠 {hostel.hostelType}</p>
+
+          <p>🛏 {hostel.sharingType}</p>
+
+          <Link to={`/hostel-details/${hostel.id}`}>
+            <button className="view-btn">
+              View Details
+            </button>
+          </Link>
+
+        </div>
+
+      )}
 
     </div>
+
   );
 }
 

@@ -96,7 +96,7 @@ function Navbar() {
                 📊 Dashboard
               </Link>
             </li>
-            
+
              <li>
           <Link
             to="/about"
@@ -109,7 +109,7 @@ function Navbar() {
 
             <li>
               <button
-                className="logout-btn"
+                className="nav-logout-btn"
                 onClick={handleLogout}
               >
                 🚪 Logout

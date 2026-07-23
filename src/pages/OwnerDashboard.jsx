@@ -1,96 +1,176 @@
 import { Link, useNavigate } from "react-router-dom";
+import "../css/dashboard.css";
 
 function OwnerDashboard() {
-    const navigate = useNavigate();
 
- const handleLogout = () => {
-  alert("Logged Out Successfully!");
-  navigate("/owner-login");
-};
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("role");
+
+    alert("Logged Out Successfully!");
+
+    navigate("/login?role=owner");
+
+  };
+
   return (
-     <div className="dashboard-header">
-  <div>
-    <h1>🏢 Owner Dashboard</h1>
-    <p>Manage your hostels easily.</p>
-  </div>
 
-  <button
-    className="logout-btn"
-    onClick={handleLogout}
-  >
-    Logout
-  </button>
-       <div className="stats">
+    <section className="student-dashboard">
 
-      <div className="stat-card">
-      <h2>3</h2>
-      <p>Total Hostels</p>
-       </div>
+      {/* Hero Section */}
 
-       <div className="stat-card">
-      <h2>15</h2>
-      <p>Total Bookings</p>
+      <div className="dashboard-hero">
+
+        <h1>
+          👋 Welcome Back,
+          <span> Owner</span>
+        </h1>
+
+        <h2>
+          Manage Your Hostel with STUBO
+        </h2>
+
+        <p>
+          Welcome to the STUBO Owner Portal.
+          Manage your hostel, update your profile and
+          connect with thousands of students around
+          GLA University.
+        </p>
+
       </div>
 
-     <div className="stat-card">
-     <h2>₹45,000</h2>
-     <p>Monthly Income</p>
-     </div>
+      {/* Dashboard Cards */}
 
-    </div>
+      <div className="dashboard-grid">
 
-      <div className="dashboard-cards">
+        {/* My Hostel */}
 
         <div className="dashboard-card">
-          <h2>➕ Add Hostel</h2>
-          <p>Add a new hostel.</p>
-            <Link to="/add-hostel">
-          <button>Add Hostel</button>
-          </Link>
-        </div>
 
-        <div className="dashboard-card">
-          <h2>📋 My Hostels</h2>
-          <p>View all your hostels.</p>
+          <h2>🏠 My Hostel</h2>
+
+          <p>
+            View your hostel details.
+            <br />
+            If your hostel is already listed on STUBO,
+            you can manage it from here.
+          </p>
+
           <Link to="/my-hostels">
-          <button>View</button>
+            <button>View Hostel</button>
           </Link>
+
         </div>
+
+        {/* My Profile */}
 
         <div className="dashboard-card">
-          <h2>✏ Edit Hostel</h2>
-          <p>Update hostel details.</p>
-           <Link to="/edit-hostel">
-           <button>Edit</button>
-           </Link>
+
+          <h2>👤 My Profile</h2>
+
+          <p>
+            View and update your owner profile.
+          </p>
+
+          <Link to="/owner-profile">
+            <button>View Profile</button>
+          </Link>
+
         </div>
+
+        {/* Settings */}
 
         <div className="dashboard-card">
-          <h2>🗑 Delete Hostel</h2>
-          <p>Remove hostel.</p>
-          <button
-         onClick={() => {
-         if (window.confirm("Are you sure you want to delete this hostel?")) {
-          alert("Hostel Deleted Successfully!");
-          }
-        }}
-         >
-           Delete
-         </button>
-        </div>
-         <div className="dashboard-card">
-          <h2>📋 Bookings</h2>
-          <p>Manage student bookings.</p>
 
-          <Link to="/owner-bookings">
-          <button>View</button>
+          <h2>⚙️ Settings</h2>
+
+          <p>
+            Manage your account settings.
+            <br />
+            <strong>(Coming Soon)</strong>
+          </p>
+
+          <Link to="/owner-settings">
+            <button>Open</button>
           </Link>
+
+        </div>
+
+        {/* Contact STUBO */}
+
+        <div className="dashboard-card">
+
+          <h2>📞 Contact STUBO</h2>
+
+          <p>
+            Want to list or claim your hostel?
+            <br />
+            Contact STUBO Team.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              justifyContent: "center",
+              marginTop: "15px",
+              flexWrap: "wrap"
+            }}
+          >
+
+            <a
+              href="tel:7307518516"
+              style={{ textDecoration: "none" }}
+            >
+              <button>📞 Call</button>
+            </a>
+
+            <a
+              href="https://wa.me/917307518516"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none" }}
+            >
+              <button>💬 WhatsApp</button>
+            </a>
+
           </div>
 
+        </div>
+
       </div>
 
-    </div>
+      {/* Footer */}
+
+      <div className="dashboard-footer">
+
+        <p>
+          🏢 STUBO Owner Portal • Trusted by GLA Students • Secure Platform
+        </p>
+
+      </div>
+
+      {/* Logout */}
+
+      <div className="logout-section">
+
+        <button
+          className="logout-btn"
+          onClick={handleLogout}
+        >
+          🚪 Logout
+        </button>
+
+      </div>
+
+    </section>
+
   );
+
 }
 
 export default OwnerDashboard;

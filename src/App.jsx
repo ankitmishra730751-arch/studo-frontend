@@ -23,6 +23,7 @@ import OwnerBooking from "./pages/OwnerBooking";
 import Hostels from "./pages/Hostels";
 import HostelDetails from "./pages/HostelDetails";
 import Booking from "./pages/Booking";
+import OwnerProfile from "./pages/OwnerProfile";
 
 function App() {
   return (
@@ -86,6 +87,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/owner-profile" element={<OwnerProfile />} />
 
         <Route
           path="/my-hostels"
